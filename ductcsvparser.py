@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 import csv
 import re
@@ -10,11 +10,11 @@ def main():
 
     # Open CSV File based on user input
 
-    # infile = input('\nInput csv filename (include path): ')
-    # outfile = input('\nOutput csv filename (include path): ')
+    infile = input('\nInput csv filename (include path): ')
+    outfile = input('\nOutput csv filename (include path): ')
 
-    infile = ('/home/bcalvert/dev/csvparser/data/M4DuctReport.csv')
-    outfile = ('/home/bcalvert/dev/csvparser/data/M4DuctReportScrubbed.csv')
+    # infile = ('/home/bcalvert/dev/csvparser/data/M4DuctReport.csv')
+    # outfile = ('/home/bcalvert/dev/csvparser/data/M4DuctReportScrubbed.csv')
 
     # Open csvfile
     with open(infile, 'r') as csvfile:
