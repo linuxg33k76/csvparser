@@ -50,11 +50,17 @@ def main():
                 if row['SAName'] != '':
                     print(('Original SAName: {0}').format(row['SAName']))
                     for item in co_data:
-                        result = re.findall('(\w{4}-' + row['SAName'] +')', item)
+                        result = re.findall(r'(\w{4}-' + row['SAName'] +')', item)
+                        result_co = re.findall(row['SAName'] + '-CO', item)
                         if result != []:
                             print(item)
-                            # row['SAName'] = item
-                
+                            row['SAName'] = item
+                            break
+                        if result_co != []:
+                            print((item + 'and value is: {0}-{0}').format(row['SAName']))
+                            row['SAName'] = row['SAName'] + '-' + row['SAName']
+                            break
+
                 # Write the row to a new file   
 
                 writer.writerow(row)
