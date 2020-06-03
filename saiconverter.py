@@ -14,9 +14,9 @@ def main():
     # infile_co = input('\nInput CO csv filename (include path): ')
     # outfile = input('\nOutput csv filename (include path): ')
 
-    infile_sai = ('/home/linuxg33k/dev/csvparser/data/SAIdata/original/ServingAreas02June2020.csv')
-    infile_co = ('/home/linuxg33k/dev/csvparser/data/SAIdata/original/CentralOffice02June2020.csv')
-    outfile = ('/home/linuxg33k/dev/csvparser/data/SAIdata/modified/ServingAreas_modified.csv')
+    infile_sai = ('/home/bcalvert/dev/csvparser/data/SAIdata/original/ServingAreas02June2020.csv')
+    infile_co = ('/home/bcalvert/dev/csvparser/data/SAIdata/original/CentralOffice02June2020.csv')
+    outfile = ('/home/bcalvert/dev/csvparser/data/SAIdata/modified/ServingAreas_modified.csv')
 
     # Open CO File
     with open(infile_co, 'r') as co_file:
@@ -42,7 +42,7 @@ def main():
 
             # Add same header names
             sai_fieldnames = sai_reader.fieldnames
-            writer = csv.DictWriter(sai_outfile, fieldnames=sai_fieldnames)
+            writer = csv.DictWriter(sai_outfile, fieldnames=sai_fieldnames, quoting=csv.QUOTE_ALL)
             writer.writeheader()
 
             # Parse through data in file
@@ -61,9 +61,9 @@ def main():
                             row['SAName'] = row['SAName'] + '-' + row['SAName']
                             break
 
-                # Write the row to a new file   
-
+                # Write the row to a new file using dialect "doublequote"
+                
                 writer.writerow(row)
-
+                
 if __name__ == '__main__':
     main()
