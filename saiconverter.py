@@ -42,6 +42,8 @@ def main():
 
             # Add same header names
             sai_fieldnames = sai_reader.fieldnames
+
+            # Set output file with fieldnames and quotes on output
             writer = csv.DictWriter(sai_outfile, fieldnames=sai_fieldnames, quoting=csv.QUOTE_ALL)
             writer.writeheader()
 
@@ -61,7 +63,7 @@ def main():
                             row['SAName'] = row['SAName'] + '-' + row['SAName']
                             break
 
-                # Write the row to a new file using dialect "doublequote"
+                # Write the row to a new file
                 
                 writer.writerow(row)
                 
